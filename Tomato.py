@@ -80,10 +80,6 @@ main_page_head = '''
             $(this).next("div").show("fast", showNext);
           });
         });
-        $(function () { $("[data-toggle = 'tooltip']").tooltip(
-        show: {
-            effect: "slideDown"
-             }); });
     </script>
 </head>
 '''
@@ -109,7 +105,7 @@ main_page_content = '''
       <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="container">
           <div class="navbar-header">
-            <a class="navbar-brand" href="#">Fresh Tomatoes Movie Trailers: Hover to read synopses, click to watch trailer!</a>
+            <a class="navbar-brand" href="#">Fresh Tomatoes Movie Trailers : Hover for synopsis; Click for trailer!</a>
           </div>
         </div>
       </div>
@@ -124,9 +120,9 @@ main_page_content = '''
 
 # A single movie entry html template
 movie_tile_content = '''
-<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="{trailer_youtube_id}" data-toggle="modal" data-target="#trailer">
-    <img src="{poster_image_url}" width="220" height="342" data-toggle="tooltip" title="{synopsis}">
-    <h3>{movie_title}</h3>
+<div class="col-md-6 col-lg-2 movie-tile text-center" data-trailer-youtube-id="{trailer_youtube_id}" data-toggle="modal" data-target="#trailer">
+    <img src="{poster_image_url}" width="150" height="250">
+    <h5>{movie_title}</h5>
 </div>
 '''
 
@@ -147,8 +143,7 @@ def create_movie_tiles_content(movies):
         content += movie_tile_content.format(
             movie_title=movie.title,
             poster_image_url=movie.poster_image_url,
-            trailer_youtube_id=trailer_youtube_id,
-            synopsis=movie.storyline
+            trailer_youtube_id=trailer_youtube_id
         )
     return content
 
